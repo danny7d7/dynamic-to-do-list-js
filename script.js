@@ -5,6 +5,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskInput = document.getElementById('task-input');
     const taskList = document.getElementById('task-list');
 
+    let tasks = [];
+
+    function loadTasks() {
+        const storedTasks = localStorage.getItem('tasks');
+        if (storedTasks) {
+            tasks = JSON.parse(storedTasks);
+            tasks.forEach(taskText => {
+                addTaskToDOM(taskText);
+            });
+        }
+    }
+
     // Create the addTask Function
     const addTask = function() {
         // Retrieve and trim the value from the task input field
