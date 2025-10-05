@@ -52,6 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
             li.appendChild(removeButton);
             // Then append the li to taskList
             taskList.appendChild(li);
+
+            tasks.push(taskText);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
             
             // Clear the task input field
             taskInput.value = "";
